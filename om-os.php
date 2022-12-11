@@ -15,21 +15,20 @@
 					<h2>
 						<strong>Om Godenumre.dk</strong>
 					</h2>
-					<p>Godenumre.dk er en nystartet virksomhed der tilbyder guldnumre som er særligt attraktive som firmanumre. Vi tilbyder attraktive guldnumre til billige priser - med et voksende udvalg. Virksomheden er startet som et hobbyprojekt ved siden af studiet til softwareingeniør.</p>
+					<p>Godenumre.dk er en lille virksomhed der tilbyder guldnumre som er særligt attraktive som firmanumre. Godenumre.dk tilbyder attraktive guldnumre til billige priser - med et voksende udvalg. Virksomheden er startet som et hobbyprojekt ved siden af studiet til softwareingeniør.</p>
 
 					<h2><strong>Kontakt</strong></h2>
-					<p>Du kan skrive til os via email på&nbsp;</span>info@godenumre.dk - vi svarer indenfor 24 timer.</p>
-					<p>Telefon eller sms <strong>alle dage</strong> på 222-111-30, mellem 9:00-19:00.</p>
-
+					<p>Du kan skrive til mig via email på&nbsp;</span>info@godenumre.dk - jeg bestræber mig på at svare indenfor 24 timer.</p>
+					<p>Telefon eller sms <strong>alle dage</strong> på 222-111-30, mellem 9:00-19:00. Hvis ikke jeg er tilgængelig på telefon så prøv med en sms :)</p>
 					<br>
 
 					<h2><strong>Overdragelse</strong></h2>
-					<p>Efter køb af guldnummer skal du overdrage dit nye telefonummer. Denne process er nem - se <a href="/pages/overdragelse-af-guldnummer" title="Guide til overdragelse af guldnummer">guiden til overdragelse</a>.<br>&nbsp;<a href="/pages/test"><br></a>Vi står altid til rådighed hvis der er yderligere brug for hjælp til overdragelsen.</p>
+					<p>Efter køb af guldnummer skal du overdrage dit nye telefonummer. Denne process er nem - se <a href="/pages/overdragelse-af-guldnummer" title="Guide til overdragelse af guldnummer">guiden til overdragelse</a>.<br>&nbsp;<a href="/pages/test"><br></a>Jeg står altid til rådighed hvis der er yderligere brug for hjælp til overdragelsen.</p>
 
 					<br>
 
 					<h2><strong>Certifikater og Mærkater</strong></h2>
-					<p>godenumre.dk er en CO2 neutral hjemmeside. Vi er blandt andet en del af ingenco2 initiativet som bidrager til CO2-reducerende projekter</p>
+					<p>Godenumre.dk er en CO2 neutral hjemmeside. Vi er blandt andet en del af ingenco2 initiativet som bidrager til CO2-reducerende projekter</p>
 					<div style="text-align: left;">
 						<a href="https://www.ingenco2.dk/crt/dispcust/c/5940/l/2" target="_blank" title="CO2 neutral certifikat" rel="noopener noreferrer" aria-describedby="a11y-new-window-external-message">
 							<img src="mærkater/Ikon_CO2_neutralt_website_Dansk_002.avif" alt="Certifikat CO2 neutral website" width="" height="" style="float: none; display: block; margin-left: auto; margin-right: auto;">
