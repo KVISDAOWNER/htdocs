@@ -1,18 +1,8 @@
 // This is your test publishable API key.
 const stripe = Stripe("pk_test_51LvjtlJZ8RZt5un1dPyDXsTab77g68TG81RiKojJvf0zjB4hxk761xn9mDJ7K3nMNWz2edjOGHvcjHodjTGaBiJM006OhjXGHr");
 
-// The items the customer wants to buy
-const transactionInitiation = { 
-  name: "kristoffer", 
-  company: "godenumre.dk", 
-  cvr: "41243848", 
-  email: "kristoffer.sj111@gmail.com", 
-  product_name: "222-111-30", //in php checkout.file
-  product_price: 599900 //in php checkout.file
-};
-
 let elements;
-
+let clientSecret;
 initialize();
 checkStatus();
 
@@ -23,26 +13,39 @@ document
 // Fetches a payment intent and captures the client secret
 async function initialize() {
 
-
+  if(!new URLSearchParams(window.location.search).has("session")){
+    return;
+  }
   const encodedSessionInfo = new URLSearchParams(window.location.search).get(
     "session"
   );
 
   const sessionInfo =  JSON.parse(atob(encodedSessionInfo));
+  console.log(sessionInfo)
 
   const product = sessionInfo.product;
   const product_price = sessionInfo.product_price;
 
+  const transactionInitiation = {
+    product_name: sessionInfo.product,
+    product_price: sessionInfo.product_price
+  }
+
+  transactionInitiation.product_name = sessionInfo.product;
+  transactionInitiation.product_price = sessionInfo.product_price;
 
   if (!product && !product_price) {
     return;
   }
+  console.log(transactionInitiation)
 
-  const { clientSecret } = await fetch("/create.php", {
+  var result = await fetch("/checkout_functions.php", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ transactionInitiation }),
   }).then((r) => r.json());
+
+  clientSecret = result.clientSecret;
 
   elements = stripe.elements({ clientSecret });
 
@@ -54,9 +57,36 @@ async function initialize() {
   paymentElement.mount("#payment-element");
 }
 
+
+
 async function handleSubmit(e) {
   e.preventDefault();
   setLoading(true);
+
+  const encodedSessionInfo = new URLSearchParams(window.location.search).get(
+    "session"
+  );
+  const sessionInfo =  JSON.parse(atob(encodedSessionInfo));
+
+  // The items the customer wants to buy
+  const transactionInitiation = {
+    client_secret: clientSecret,
+    name: document.getElementById("name")?.value,
+    company: document.getElementById("company")?.value,
+    cvr: document.getElementById("cvr")?.value,
+    email: document.getElementById("email")?.value,
+    product_name: sessionInfo.product, //in php checkout.file
+    product_price: sessionInfo.product_price //in php checkout.file
+  };
+
+  console.log(JSON.stringify({ transactionInitiation }))
+
+  await fetch("/checkout_functions.php", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ transactionInitiation }),
+  });
+
 
   const { error } = await stripe.confirmPayment({
     elements,
@@ -82,6 +112,7 @@ async function handleSubmit(e) {
   setLoading(false);
 }
 
+
 // Fetches the payment intent status after payment submission
 async function checkStatus() {
   const clientSecret = new URLSearchParams(window.location.search).get(
@@ -96,33 +127,43 @@ async function checkStatus() {
 
   switch (paymentIntent.status) {
     case "succeeded":
-      showMessage("Payment succeeded!");
+      showMessage("Betaling Succesfuld!", "Du tages nu videre... Øjeblik :)");
+        // Your application has indicated there's an error
+      window.setTimeout(function(){
+
+        // Get the current URL and query string
+        var queryString = window.location.search;
+
+        // Update the URL without reloading the page
+        window.location.replace("https://localhost/checkout_success.php" + queryString);
+      }, 5000);
       break;
     case "processing":
-      showMessage("Your payment is processing.");
+      showMessage("Betaling Processeres");
       break;
     case "requires_payment_method":
-      showMessage("Your payment was not successful, please try again.");
+      showMessage("Betaling Mislykkedes Prøv Igen");
       break;
     default:
-      showMessage("Something went wrong.");
+      showMessage("Noget Gik Galt :(");
       break;
   }
 }
 
 // ------- UI helpers -------
 
-function showMessage(messageText) {
-  const messageContainer = document.querySelector("#payment-message");
+function showMessage(messageTitle, messageText) {
+  const messageTitleContainer = document.querySelector("#payment-message-title");
+  const messageTextContainer = document.querySelector("#payment-message-text");
+  console.log(messageText)
 
-  messageContainer.classList.remove("hidden");
-  messageContainer.textContent = messageText;
+  messageTitleContainer.classList.remove("hidden");
+  messageTitleContainer.textContent = messageTitle;
 
-  setTimeout(function () {
-    messageContainer.classList.add("hidden");
-    messageText.textContent = "";
-  }, 4000);
+  messageTextContainer.classList.remove("hidden");
+  messageTextContainer.textContent = messageText;
 }
+
 
 // Show a spinner on payment submission
 function setLoading(isLoading) {
@@ -137,3 +178,4 @@ function setLoading(isLoading) {
     document.querySelector("#button-text").classList.remove("hidden");
   }
 }
+

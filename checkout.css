@@ -28,7 +28,7 @@ form {
   display: none;
 }
 
-#email, #navn, #company, #cvr {
+#email, #name, #company, #cvr {
   border-radius: 6px;
   margin-bottom: 16px;
   padding: 12px;
@@ -38,14 +38,6 @@ form {
   width: 100%;
   background: white;
   box-sizing: border-box;
-}
-
-#payment-message {
-  color: rgb(105, 115, 134);
-  font-size: 16px;
-  line-height: 20px;
-  padding-top: 12px;
-  text-align: center;
 }
 
 #payment-element {

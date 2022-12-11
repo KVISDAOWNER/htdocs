@@ -7,7 +7,7 @@
 						<h1>GODENUMRE.DK</h1>
 					</a>
 				</div>
-				
+
 				<nav>
 					<a href='alle-guldnumre.php'>Alle Guldnumre</a>
 					<a href='overdragelse.php'>Overdragelse</a>
@@ -49,6 +49,4 @@
 
 		return $conn;
 	}
-
-
 ?>

@@ -9,7 +9,7 @@
 		<?php
 		 	require_once 'functions.php';
 		 	h();
-			
+
 			echo '<div class="box content content2" style="text-align:center;">';
 
 				$telefonnummer =  $_GET['telefonnummer'];
@@ -20,7 +20,7 @@
 				$result = $stmt -> get_result() -> fetch_assoc();
 				$price = $result['price'];
 
-				echo 
+				echo
 				'<div class="left-element">
 					<img src="telefonnumre-til-salg\\' . $telefonnummer . '.webp">
 				</div>';
@@ -37,11 +37,11 @@
 					<p>
 						Ingen binding! Vælg frit teleselskab og abonnement efter køb af dit firmanummer. Du modtager SIM-nr på kvittering direkte efter køb.
 						<u><a href="overdragelse.php">Se den hurtige guide for overdragelse her</a></u>.
-					</p>	
+					</p>
 				</div>';
 
 			echo '</div>';
-		    
+
 		 	require_once 'functions.php';
 		 	f();
 		?>

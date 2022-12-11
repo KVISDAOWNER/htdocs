@@ -11,21 +11,21 @@
 			?>
 			<div class="box content content0">
 				<h1>Om Os</h1>
-				<div class="rte">
-	        		<h2>
-	        			<strong>Om Godenumre.dk</strong>
-	        		</h2>
+				<div>
+					<h2>
+						<strong>Om Godenumre.dk</strong>
+					</h2>
 					<p>Godenumre.dk er en nystartet virksomhed der tilbyder guldnumre som er særligt attraktive som firmanumre. Vi tilbyder attraktive guldnumre til billige priser - med et voksende udvalg. Virksomheden er startet som et hobbyprojekt ved siden af studiet til softwareingeniør.</p>
-					
+
 					<h2><strong>Kontakt</strong></h2>
 					<p>Du kan skrive til os via email på&nbsp;</span>info@godenumre.dk - vi svarer indenfor 24 timer.</p>
 					<p>Telefon eller sms <strong>alle dage</strong> på 222-111-30, mellem 9:00-19:00.</p>
-					
+
 					<br>
 
 					<h2><strong>Overdragelse</strong></h2>
 					<p>Efter køb af guldnummer skal du overdrage dit nye telefonummer. Denne process er nem - se <a href="/pages/overdragelse-af-guldnummer" title="Guide til overdragelse af guldnummer">guiden til overdragelse</a>.<br>&nbsp;<a href="/pages/test"><br></a>Vi står altid til rådighed hvis der er yderligere brug for hjælp til overdragelsen.</p>
-					
+
 					<br>
 
 					<h2><strong>Certifikater og Mærkater</strong></h2>
@@ -46,11 +46,11 @@
 					</div>
       			</div>
 			</div>
-			
+
 			<?php
 			 	require_once 'functions.php';
 			 	f();
-			?>	
+			?>
 		</div>
 	</body>
 </html>
