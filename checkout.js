@@ -10,6 +10,22 @@ document
   .querySelector("#payment-form")
   .addEventListener("submit", handleSubmit);
 
+
+  document
+  .querySelector("#email")
+  .addEventListener("input", handleOnclick);
+  ///WORK IN PROGRESS
+  document
+  .querySelector("#name")
+  .addEventListener("input", handleOnclick);
+
+function handleOnclick(e){
+    ///WORK IN PROGRESS
+
+  console.log(e);
+  e.classList.remove("inputError");
+}
+
 // Fetches a payment intent and captures the client secret
 async function initialize() {
 
@@ -61,6 +77,21 @@ async function initialize() {
 
 async function handleSubmit(e) {
   e.preventDefault();
+  var emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+  if(document.getElementById("email")?.value === '' || document.getElementById("email")?.value.match(emailRegex) || document.getElementById("name")?.value === ''){
+
+
+    if(document.getElementById("email")?.value === '' ){
+      document.getElementById("email").classList.add('inputError');
+    }
+    if(document.getElementById("name")?.value === '' ){
+      document.getElementById("name").classList.add('inputError');
+    }
+    showShortMessage("**Betaling mangler oplysninger");
+    return;
+  }
+
   setLoading(true);
 
   const encodedSessionInfo = new URLSearchParams(window.location.search).get(
@@ -151,17 +182,26 @@ async function checkStatus() {
 }
 
 // ------- UI helpers -------
+function showShortMessage(messageText) {
+  const messageTextContainer = document.querySelector("#payment-message-text");
+  if(messageTextContainer){
+    messageTextContainer.textContent = messageText;
+    messageTextContainer.classList.remove("hidden");
+  }
+}
 
 function showMessage(messageTitle, messageText) {
-  const messageTitleContainer = document.querySelector("#payment-message-title");
-  const messageTextContainer = document.querySelector("#payment-message-text");
-  console.log(messageText)
+  const messageTitleContainer = document.querySelector("#payment-status-title");
+  const messageTextContainer = document.querySelector("#payment-status-text");
 
-  messageTitleContainer.classList.remove("hidden");
-  messageTitleContainer.textContent = messageTitle;
-
-  messageTextContainer.classList.remove("hidden");
-  messageTextContainer.textContent = messageText;
+  if(messageTitleContainer){
+    messageTitleContainer.textContent = messageTitle;
+    messageTitleContainer.classList.remove("hidden");
+  }
+  if(messageTextContainer){
+    messageTextContainer.textContent = messageText;
+    messageTextContainer.classList.remove("hidden");
+  }
 }
 
 

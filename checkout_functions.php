@@ -41,6 +41,7 @@ try {
             'automatic_payment_methods' => [
                 'enabled' => true,
             ],
+            'description' => $jsonObj->product_name . ' til ' . $jsonObj->product_price . ' DKK'
         ]);
         $stmt = $conn->prepare("INSERT INTO godenumre.transaction (client_secret, product_name, product_price, status, datetime)
         VALUES (?,?,?, 'waiting',?)");

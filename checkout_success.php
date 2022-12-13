@@ -77,7 +77,7 @@
         echo '<br>';
         echo '<br>';
         echo '<p style="font-size:20px;"><b>Kundeinformation</b></p>';
-        echo '<p>att: '. $transaction_result['name'] .'</p>';
+        echo '<p>att.: '. $transaction_result['name'] .'</p>';
         echo '<p>'. $transaction_result['company'] .'</p>';
         echo '<p>CVR: '. $transaction_result['cvr'] .'</p>';
         echo '<p>'. $transaction_result['email'] .'</p>';
@@ -92,6 +92,17 @@
       }
 
       echo '</div>';
+
+
+        // the message
+        $msg = "First line of text\nSecond line of text";
+
+        // use wordwrap() if lines are longer than 70 characters
+        $msg = wordwrap($msg,70);
+
+        // send email
+        mail("kristoffer.sj111@gmail.com","My subject",$msg);
+
       f();
       ?>
   </body>

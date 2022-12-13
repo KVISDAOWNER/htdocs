@@ -28,6 +28,16 @@ form {
   display: none;
 }
 
+#payment-message-text{
+  font-size: smaller;
+  margin: 0;
+}
+
+.inputError{
+  border-color: red !important;
+  border-width: 0.15rem !important;
+}
+
 #email, #name, #company, #cvr {
   border-radius: 6px;
   margin-bottom: 16px;
@@ -46,7 +56,7 @@ form {
 
 /* Buttons and links */
 button {
-  background: #5469d4;
+  background: #161616;
   font-family: Arial, sans-serif;
   color: #ffffff;
   border-radius: 4px;
