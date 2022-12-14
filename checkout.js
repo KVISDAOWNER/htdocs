@@ -21,9 +21,7 @@ document
 
 function handleOnclick(e){
     ///WORK IN PROGRESS
-
-  console.log(e);
-  e.classList.remove("inputError");
+  e.srcElement.classList.remove("inputError");
 }
 
 // Fetches a payment intent and captures the client secret
@@ -79,10 +77,8 @@ async function handleSubmit(e) {
   e.preventDefault();
   var emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
-  if(document.getElementById("email")?.value === '' || document.getElementById("email")?.value.match(emailRegex) || document.getElementById("name")?.value === ''){
-
-
-    if(document.getElementById("email")?.value === '' ){
+  if(document.getElementById("email")?.value === '' || !document.getElementById("email")?.value.match(emailRegex) || document.getElementById("name")?.value === ''){
+    if(document.getElementById("email")?.value === '' || !document.getElementById("email")?.value.match(emailRegex)  ){
       document.getElementById("email").classList.add('inputError');
     }
     if(document.getElementById("name")?.value === '' ){

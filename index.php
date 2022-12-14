@@ -21,9 +21,9 @@
 					<?php
 						require_once 'functions.php';
 						$conn = connectToDb();
-						
+
 						$result = $conn->query('SELECT * FROM godenumre.telefonnummer WHERE sold = 0 ORDER BY price desc limit 1') -> fetch_assoc();
-						
+
 						$files = array_diff(scandir('telefonnumre-til-salg'), array('..', '.'));
 						    $telefonnummer = $result['name'];
 						    $price = $result['price'];
@@ -51,7 +51,7 @@
 			</div>
 			<div class="box content center content1">
 				<h3>NOGLE AF VORES FANTASTISKE KUNDER</h3>
-				
+
 				<a href="https://www.dhkbyg.dk">
 					<img style="margin: -80px 1em 0 1em;  position: relative; transform: translateY(50%);" width=160px src="kunder\www.dhkbyg.dk.avif">
 				</a>
@@ -139,7 +139,7 @@
 			</div>
 			<div style="max-width: 800px;" class="box content center content4">
   				<h4 >Hvad gavner et unikt guldnummer?</h4>
-              	<p style="font-size: .9375em;">Et godt guldnummer signalerer professionalisme og er med til at tilføje troværdighed til dit brand. Brug det til at styrke dine salgskanaler og din kundeservice. godenumre.dk har guldnumre til alle virksomheder. Håndværkervirksomheder og lignende kan få særlig gavn af at markedsføre med let genkendeligt guldnummer som firmanummer på firmabil. Desuden kan IT Startups og andre nystartede virksomheder få særlig gavn af at få et unikt guldnummer til at signalere et professionelt og troværdigt brand. Køb dit nye guldnummer ved godenumre.dk og vi garanterer at du kan starte overdragelsen af dit nye nummer allerede i dag!</p>
+              	<p style="font-size: .9375em;">Et godt guldnummer signalerer professionalisme og er med til at tilføje troværdighed til dit brand. Brug det til at styrke dine salgskanaler og din kundeservice. Nystartede virksomheder har særlig gavn af at få et unikt guldnummer til at signalere et professionelt og troværdigt brand. Køb dit nye guldnummer ved godenumre.dk og vi garanterer at du kan starte overdragelsen af dit nye nummer allerede i dag!</p>
 			</div>
 
 			<?php

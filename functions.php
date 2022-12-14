@@ -28,7 +28,6 @@
 				<div style='display: inline-block; vertical-align:top; width: 31%;'>
 					<p style='font-weight: bolder;'>Kontakt</p>
 					<p>CVR-nr. 41243848</p>
-					<p>Aalborg, Visionsvej 11, 1, -3</p>
 					<p>(+45) 222-111-30</p>
 					<p>info@godenumre.dk</p>
 					<a>Cookie- og privatlivspolitik</a>
