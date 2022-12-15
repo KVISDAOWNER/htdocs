@@ -8,11 +8,13 @@
 		<div class="wrapper">
 		<?php
 		 	require_once 'functions.php';
+
 		 	h();
 
 			echo '<div class="box content content2" style="text-align:center;">';
 
 				$telefonnummer =  $_GET['telefonnummer'];
+				create_product_image($telefonnummer);
 				$conn = connectToDb();
 			    $stmt = $conn->prepare('SELECT * FROM godenumre.telefonnummer WHERE name = ? limit 1');
 				$stmt->bind_param('s', $telefonnummer); // 's' specifies the variable type => 'string'
@@ -21,18 +23,18 @@
 				$price = $result['price'];
 
 				echo
-				'<div class="left-element">
-					<img src="telefonnumre-til-salg\\' . $telefonnummer . '.webp">
+				'<div class="product-left-element">
+					<img id="product-image" src="telefonnumre-til-salg\\' . $telefonnummer . '.jpg">
 				</div>';
 
 
 				$encoded_session = base64_encode(json_encode((object) ['product' => $telefonnummer, 'product_price' => $price]));
 				echo '
-				<div class="right-element">
+				<div class="product-right-element">
 					<h2>Guldnummer ' . $_GET['telefonnummer'] . '</h3>
-					<p class="grid-product-price">kr. ' . strrev(implode(".", str_split(strrev($price), 3))) . '</p>
+					<p class="grid-product-price-big">kr. ' . strrev(implode(".", str_split(strrev($price), 3))) . '</p>
 
-					<button id="checkout-button" onclick="location.href=\'checkout.php?session=' . $encoded_session . '\'" type="button">Køb Nu</button>
+					<button id="buy-button" onclick="location.href=\'checkout.php?session=' . $encoded_session . '\'" type="button">Køb Nu</button>
 
 					<p>
 						Ingen binding! Vælg frit teleselskab og abonnement efter køb af dit firmanummer. Du modtager SIM-nr på kvittering direkte efter køb.

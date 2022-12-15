@@ -11,7 +11,8 @@
 			?>
 			<div class="box content content1">
 				<div style="text-align:center;">
-					<?php 
+					<?php
+			 			require_once 'functions.php';
 
 						// Create connection
 						$conn = new mysqli("127.0.0.1", "root", "");
@@ -27,11 +28,12 @@
 						$files = array_diff(scandir('telefonnumre-til-salg'), array('..', '.'));
 						foreach ($results as $result) {
 						    $telefonnummer = $result['name'];
+	          		create_product_image($telefonnummer);
 						    $price = $result['price'];
-						    echo 
+						    echo
 						    '<div class="product">
 								<a href="telefonnummer.php?telefonnummer=' . $telefonnummer . '">
-									<img width=300rem src="telefonnumre-til-salg\\' . $telefonnummer . '.webp">
+									<img width=300rem src="telefonnumre-til-salg\\' . $telefonnummer . '.jpg">
 							    	<p class="grid-product-title">'. str_replace('-', ' ', $telefonnummer) . '</p>
 							    	<p class="grid-product-price"> kr. '. strrev(implode(".", str_split(strrev($price), 3))) . '</p>
 								</a>

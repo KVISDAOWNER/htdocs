@@ -20,17 +20,19 @@
 				<div class="left-element">
 					<?php
 						require_once 'functions.php';
+
 						$conn = connectToDb();
 
 						$result = $conn->query('SELECT * FROM godenumre.telefonnummer WHERE sold = 0 ORDER BY price desc limit 1') -> fetch_assoc();
 
 						$files = array_diff(scandir('telefonnumre-til-salg'), array('..', '.'));
 						    $telefonnummer = $result['name'];
+								create_product_image($telefonnummer);
 						    $price = $result['price'];
 						    echo
 						    '<div class="bigproduct">
 								<a href="telefonnummer.php?telefonnummer=' . $telefonnummer . '">
-									<img width=600rem src="telefonnumre-til-salg\\' . $telefonnummer . '.webp">
+									<img width=600rem src="telefonnumre-til-salg\\' . $telefonnummer . '.jpg">
 							    	<p class="grid-product-title">'. str_replace('-', ' ', $telefonnummer) . '</p>
 							    	<p class="grid-product-price"> kr. '. strrev(implode(".", str_split(strrev($price), 3))) . '</p>
 								</a>
@@ -93,11 +95,12 @@
 						$files = array_diff(scandir('telefonnumre-til-salg'), array('..', '.'));
 						foreach ($results as $result) {
 						    $telefonnummer = $result['name'];
+								create_product_image($telefonnummer);
 						    $price = $result['price'];
 						    echo
 						    '<div class="product">
 								<a href="telefonnummer.php?telefonnummer=' . $telefonnummer . '">
-									<img width=300rem src="telefonnumre-til-salg\\' . $telefonnummer . '.webp">
+									<img width=300rem src="telefonnumre-til-salg\\' . $telefonnummer . '.jpg">
 							    	<p class="grid-product-title">'. str_replace('-', ' ', $telefonnummer) . '</p>
 							    	<p class="grid-product-price"> kr. '. strrev(implode(".", str_split(strrev($price), 3))) . '</p>
 								</a>
@@ -121,11 +124,12 @@
 					$files = array_diff(scandir('telefonnumre-til-salg'), array('..', '.'));
 					foreach ($results as $result) {
 					    $telefonnummer = $result['name'];
+							create_product_image($telefonnummer);
 					    $price = $result['price'];
 					    echo
 					    '<div class="product">
 							<a href="telefonnummer.php?telefonnummer=' . $telefonnummer . '">
-								<img width=300rem src="telefonnumre-til-salg\\' . $telefonnummer . '.webp">
+								<img width=300rem src="telefonnumre-til-salg\\' . $telefonnummer . '.jpg">
 						    	<p class="grid-product-title">'. str_replace('-', ' ', $telefonnummer) . '</p>
 						    	<p class="grid-product-price"> kr. '. strrev(implode(".", str_split(strrev($price), 3))) . '</p>
 							</a>

@@ -57,7 +57,7 @@
           echo
           '<div class="left-element">
             <h3>Ordre Detaljer</h3>
-            <img width=300rem src="telefonnumre-til-salg\\' . $telefonnummer . '.webp">
+            <img width=300rem src="telefonnumre-til-salg\\' . $telefonnummer . '.jpg">
                       <p >' . strrev(implode(".", str_split(strrev($price), 3))) . ',00 DKK</p>
                       <p> Du modtager en kvittering på mail med SIM-kort nummer. </p>
           </div>';
